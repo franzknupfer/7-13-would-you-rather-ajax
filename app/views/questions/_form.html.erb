@@ -1,0 +1,7 @@
+  <%= bootstrap_form_for @question, remote: true do |f| %>
+    <%= f.text_field :title, label: "Add your question here." %>
+    <%= f.text_field :description, label: "Describe your question" %>
+    <%= f.text_field :option1, label: "Option 1" %>
+    <%= f.text_field :option2, label: "Option 2" %>
+    <%= f.submit "Submit question", class: "btn btn-success" %>
+  <% end %>
