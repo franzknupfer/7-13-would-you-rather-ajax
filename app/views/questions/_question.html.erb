@@ -21,6 +21,14 @@
 
     <div class="col-sm-4">
       <div class="question_<%= question.id %>">
+        <% if current_user %>
+          <% vote = Vote.find_by(user: current_user, question: question) %>
+            <% if vote =! nil %>
+              <% allvotes = question.votes %>
+              <p><%= question.option1 %>: <%= allvotes.where(:option1 => true).length %></p>
+              <p><%= question.option2 %>: <%= allvotes.where(:option2 => true).length %></p>
+            <% end %>
+        <% end %>
       </div>
     </div>
 
