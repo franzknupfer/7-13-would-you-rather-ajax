@@ -1,15 +1,20 @@
 <h3>Would you rather <%= question.option1 %> or <%= question.option2 %>?</h3>
 <p><%= question.description %></p>
 
-<% Vote.find_by(user: current_user, question: question) %>
-<% binding.pry %>
 
-  <%= form_tag("/questions/#{question.id}/votes", method: "post", remote: true) do %>
-  <%= hidden_field_tag(:selected, value="option1") %>
-  <%= submit_tag question.option1, :class => "#{question.id}_button" %>
-  <% end %>
 
-  <%= form_tag("/questions/#{question.id}/votes", method: "post", remote: true) do %>
-  <%= hidden_field_tag(:selected, value="option2") %>
-  <%= submit_tag question.option2, :class => "#{question.id}_button" %>
+<% if current_user %>
+<% vote = Vote.find_by(user: current_user, question: question) %>
+  <% if vote == nil %>
+
+    <%= form_tag("/questions/#{question.id}/votes", method: "post", remote: true) do %>
+    <%= hidden_field_tag(:selected, value="option1") %>
+    <%= submit_tag question.option1, :class => "#{question.id}_button" %>
+    <% end %>
+
+    <%= form_tag("/questions/#{question.id}/votes", method: "post", remote: true) do %>
+    <%= hidden_field_tag(:selected, value="option2") %>
+    <%= submit_tag question.option2, :class => "#{question.id}_button" %>
+    <% end %>
   <% end %>
+<% end %>
