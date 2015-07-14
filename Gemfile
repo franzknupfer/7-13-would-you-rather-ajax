@@ -25,6 +25,8 @@ gem 'devise'
 
 gem 'paperclip'
 
+gem 'chartkick'
+
 
 
 group :development do
@@ -66,5 +68,7 @@ group :test do
   gem 'poltergeist'
 
   gem 'simplecov', require: false
+
+  gem 'database_cleaner'
 
 end

@@ -18,13 +18,11 @@
 
       <% end %>
     </div>
+
     <div class="col-sm-4">
       <div class="question_<%= question.id %>">
-        <% allvotes = question.votes %>
-        <p><%= question.option1 %>: <%= allvotes.where(:option1 => true).length %></p>
-        <p><%= question.option2 %>: <%= allvotes.where(:option2 => true).length %></p>
-        </div>
       </div>
+    </div>
 
     <div class="col-sm-4">
       <h3><%= question.option2 %></h3>

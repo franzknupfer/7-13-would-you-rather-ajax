@@ -1,2 +1,2 @@
 $('.<%= @question.id %>_button').remove();
-$('.question_<%= @question.id %>').hide().after('<%= j render("result") %>');
+$('.question_<%= @question.id %>').append('<%= j render("result") %>');

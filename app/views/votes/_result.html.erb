@@ -1,3 +1,5 @@
 <% allvotes = @question.votes %>
+
+
 <p><%= @question.option1 %>: <%= allvotes.where(:option1 => true).length %></p>
 <p><%= @question.option2 %>: <%= allvotes.where(:option2 => true).length %></p>
